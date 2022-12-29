@@ -8,9 +8,15 @@ dist = "./wiki"
 [preprocessing]
 backlinks = true
 citation = true
+giscus = true
 
 [template]
 template = "./template/wiki.liquid"
 knowledge_graph_template = "./template/kg.liquid"
 
 [citation]
+
+[giscus]
+repo = "markdown-world/document"
+repo-id = "R_kgDOIrftsA"
+category-id = "DIC_kwDOIrftsM4CTTvV"

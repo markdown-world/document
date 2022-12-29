@@ -4,24 +4,6 @@ require "json"
 
 site = MarkdownExtension::Site.new("./wiki.toml", :wiki)
 
-Giscus_HTML = <<END
-<script src="https://giscus.app/client.js"
-        data-repo="zhuangbiaowei/wiki.md"
-        data-repo-id="R_kgDOIkTcvA"
-        data-category="General"
-        data-category-id="DIC_kwDOIkTcvM4CTLWi"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="light"
-        data-lang="zh-CN"
-        crossorigin="anonymous"
-        async>
-</script>
-END
-
 wiki_name = site.config.title ? site.config.title : "My Wiki"
 unless Dir.exists?("./wiki")
     Dir.mkdir("wiki")
@@ -40,10 +22,10 @@ site.pages.each do |page|
     filename = "./wiki/" + page.item_name + ".html"
     f = File.new(filename, "w")
     f.puts template.render(
-        'config'=>{'title'=>wiki_name}, 
+        'config'=>{'title'=>wiki_name, 'giscus'=>site.config.preprocessing["giscus"]}, 
         'summary_html'=>summary.html,
         'wiki_html' => page.html,
-        'giscus_html'=>Giscus_HTML)
+        'giscus'=>site.config.giscus)
     f.close
 end
 
