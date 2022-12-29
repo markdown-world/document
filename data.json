@@ -1,0 +1,1 @@
+{"nodes":[{"id":"test","name":"test","color":"blue","val":1},{"id":"index","name":"index","color":"blue","val":2}],"links":[{"source":"index","target":"test"}]}
