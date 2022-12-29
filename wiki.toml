@@ -1,0 +1,16 @@
+[wiki]
+authors = ["Zhuang Biaowei"]
+language = "zh"
+src = "./src"
+title = "Concepts and Specifications"
+dist = "./wiki"
+
+[preprocessing]
+backlinks = true
+citation = true
+
+[template]
+template = "./template/wiki.liquid"
+knowledge_graph_template = "./template/kg.liquid"
+
+[citation]
